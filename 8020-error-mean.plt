@@ -10,6 +10,7 @@ set style fill solid border lt -1
 set style textbox opaque noborder
 set xtics rotate by 45 right
 set format x "10^{%L}"
+set format y "10^{%L}"
 set grid y
 set key above font ",12"
 
@@ -28,11 +29,11 @@ set logscale y 10
 set xlabel  '{/:Bold Batch fraction}'
 set ylabel  '{/:Bold Error}'
 plot '8020.csv' \
-     using 4:($10) title 'Static' linestyle  1 with linespoints, \
-  '' using 4:($11) title 'ND'     linestyle  2 with linespoints, \
-  '' using 4:($12) title 'DT'     linestyle  3 with linespoints, \
-  '' using 4:($13) title 'DF'     linestyle  4 with linespoints, \
-  '' using 4:($14) title 'DF-P'   linestyle  5 with linespoints
+     using 4:($20) title 'Static' linestyle  1 with linespoints, \
+  '' using 4:($21) title 'ND'     linestyle  2 with linespoints, \
+  '' using 4:($22) title 'DT'     linestyle  3 with linespoints, \
+  '' using 4:($23) title 'DF'     linestyle  4 with linespoints, \
+  '' using 4:($24) title 'DF-P'   linestyle  5 with linespoints
 
 
 

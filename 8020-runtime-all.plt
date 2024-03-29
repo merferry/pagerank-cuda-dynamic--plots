@@ -38,11 +38,11 @@ do for [i=1:words(files)] {
 set title word(files, i) offset 0,-0.8
 if (i>=9) { set xtics rotate by 45 right }
 plot '8020/'.word(files, i).'.csv' \
-       using 4:($5 /1000) title 'Static' linestyle 1 with linespoints, \
-    '' using 4:($6 /1000) title 'ND'     linestyle 2 with linespoints, \
-    '' using 4:($7 /1000) title 'DT'     linestyle 3 with linespoints, \
-    '' using 4:($8 /1000) title 'DF'     linestyle 4 with linespoints, \
-    '' using 4:($9 /1000) title 'DF-P'   linestyle 5 with linespoints
+       using 4:($10/1000) title 'Static' linestyle 1 with linespoints, \
+    '' using 4:($11/1000) title 'ND'     linestyle 2 with linespoints, \
+    '' using 4:($12/1000) title 'DT'     linestyle 3 with linespoints, \
+    '' using 4:($13/1000) title 'DF'     linestyle 4 with linespoints, \
+    '' using 4:($14/1000) title 'DF-P'   linestyle 5 with linespoints
 }
 unset multiplot
 

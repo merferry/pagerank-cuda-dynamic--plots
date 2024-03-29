@@ -28,27 +28,33 @@ set logscale y 10
 set xlabel  '{/:Bold Batch fraction}'
 set ylabel  '{/:Bold Runtime (s)}'
 plot '8020.csv' \
-     using 4:($5 /1000) title 'Static' linestyle  1 with linespoints, \
-  '' using 4:($6 /1000) title 'ND'     linestyle  2 with linespoints, \
-  '' using 4:($7 /1000) title 'DT'     linestyle  3 with linespoints, \
-  '' using 4:($8 /1000) title 'DF'     linestyle  4 with linespoints, \
-  '' using 4:($9 /1000) title 'DF-P'   linestyle  5 with linespoints, \
-  '' using 4:($5 /1000):($4==1e-7? sprintf("%.1f", $5 /$5 ) : "") with labels notitle offset character 2.2,character 0.6 textcolor linetype 6, \
-  '' using 4:($5 /1000):($4>=1e-6 && $4 <1e-2? sprintf("%.1f", $5 /$5 ) : "") with labels notitle offset character -1.2,character 0.8 textcolor linetype 6, \
-  '' using 4:($6 /1000):($4==1e-7? sprintf("%.1f", $5 /$6 ) : "") with labels notitle offset character 2.2,character -0.6 textcolor linetype 7, \
-  '' using 4:($6 /1000):($4>=1e-6 && $4 <1e-3? sprintf("%.1f", $5 /$6 ) : "") with labels notitle offset character -1.2,character -0.6 textcolor linetype 7, \
-  '' using 4:($6 /1000):($4==1e-2? sprintf("%.1f", $5 /$6 ) : "") with labels notitle offset character -1.2,character -0.6 textcolor linetype 7, \
-  '' using 4:($6 /1000):($4==1e-1? sprintf("%.1f", $5 /$6 ) : "") with labels notitle offset character -2.2,character -0.6 textcolor linetype 7, \
-  '' using 4:($7 /1000):($4==1e-7? sprintf("%.1f", $5 /$7 ) : "") with labels notitle offset character 2.2,character 0.6 textcolor linetype 2, \
-  '' using 4:($7 /1000):($4>=1e-6 && $4 <1e-3? sprintf("%.1f", $5 /$7 ) : "") with labels notitle offset character -2.0,character 0.4 textcolor linetype 2, \
-  '' using 4:($7 /1000):($4==1e-2? sprintf("%.1f", $5 /$7 ) : "") with labels notitle offset character -1.2,character 0.7 textcolor linetype 2, \
-  '' using 4:($7 /1000):($4==1e-1? sprintf("%.1f", $5 /$7 ) : "") with labels notitle offset character -2.2,character 0.4 textcolor linetype 2, \
-  '' using 4:($8 /1000):($4==1e-7? sprintf("%.1f", $5 /$8 ) : "") with labels notitle offset character 2.2,character 1.4 textcolor linetype 8, \
-  '' using 4:($8 /1000):($4>=1e-6 && $4 <1e-4? sprintf("%.1f", $5 /$8 ) : "") with labels notitle offset character 0.2,character 0.8 textcolor linetype 8, \
-  '' using 4:($8 /1000):($4>=1e-4 && $4 <1e-2? sprintf("%.1f", $5 /$8 ) : "") with labels notitle offset character 0.2,character -0.7 textcolor linetype 8, \
-  '' using 4:($8 /1000):($4==1e-1? sprintf("%.1f", $5 /$8 ) : "") with labels notitle offset character -1.8,character 0.5 textcolor linetype 8, \
-  '' using 4:($9 /1000):($4 <1e-1? sprintf("%.1f", $5 /$9 ) : "") with labels notitle offset character 2.2,character -0.4 textcolor linetype 8, \
-  '' using 4:($9 /1000):($4==1e-1? sprintf("%.1f", $5 /$9 ) : "") with labels notitle offset character -1.3,character -1.0 textcolor linetype 8
+     using 4:($10/1000) title 'Static' linestyle  1 with linespoints, \
+  '' using 4:($11/1000) title 'ND'     linestyle  2 with linespoints, \
+  '' using 4:($12/1000) title 'DT'     linestyle  3 with linespoints, \
+  '' using 4:($13/1000) title 'DF'     linestyle  4 with linespoints, \
+  '' using 4:($14/1000) title 'DF-P'   linestyle  5 with linespoints, \
+  '' using 4:($10/1000):($4==1e-7? sprintf("%.2f", $10/$10) : "") with labels notitle offset character 2.2,character 0.6 textcolor linetype 6, \
+  '' using 4:($10/1000):($4>=1e-6 && $4 <1e-5? sprintf("%.2f", $10/$10) : "") with labels notitle offset character 0,character 0.8 textcolor linetype 6, \
+  '' using 4:($11/1000):($4==1e-7? sprintf("%.2f", $10/$11) : "") with labels notitle offset character 1.8,character 0.8 textcolor linetype 7, \
+  '' using 4:($11/1000):($4==1e-6? sprintf("%.2f", $10/$11) : "") with labels notitle offset character -0.6,character -0.6 textcolor linetype 7, \
+  '' using 4:($11/1000):($4>=1e-5 && $4 <1e-4? sprintf("%.2f", $10/$11) : "") with labels notitle offset character -3.0,character -0.6 textcolor linetype 7, \
+  '' using 4:($11/1000):($4==1e-3? sprintf("%.2f", $10/$11) : "") with labels notitle offset character -2.2,character -0.6 textcolor linetype 7, \
+  '' using 4:($11/1000):($4==1e-2? sprintf("%.2f", $10/$11) : "") with labels notitle offset character 0,character -0.6 textcolor linetype 7, \
+  '' using 4:($11/1000):($4==1e-1? sprintf("%.2f", $10/$11) : "") with labels notitle offset character -2.2,character -0.7 textcolor linetype 7, \
+  '' using 4:($12/1000):($4==1e-7? sprintf("%.2f", $10/$12) : "") with labels notitle offset character 1.8,character 0.6 textcolor linetype 2, \
+  '' using 4:($12/1000):($4>=1e-6 && $4 <1e-2? sprintf("%.2f", $10/$12) : "") with labels notitle offset character 0.0,character 0.7 textcolor linetype 2, \
+  '' using 4:($12/1000):($4==1e-1? sprintf("%.2f", $10/$12) : "") with labels notitle offset character -4.2,character 1.2 textcolor linetype 2, \
+  '' using 4:($13/1000):($4==1e-7? sprintf("%.2f", $10/$13) : "") with labels notitle offset character 2.2,character -0.4 textcolor linetype 8, \
+  '' using 4:($13/1000):($4>=1e-6 && $4 <1e-4? sprintf("%.2f", $10/$13) : "") with labels notitle offset character 0.2,character -0.8 textcolor linetype 8, \
+  '' using 4:($13/1000):($4>=1e-4 && $4 <1e-3? sprintf("%.2f", $10/$13) : "") with labels notitle offset character 0,character -0.7 textcolor linetype 8, \
+  '' using 4:($13/1000):($4==1e-3? sprintf("%.2f", $10/$13) : "") with labels notitle offset character 2.2,character -1.3 textcolor linetype 8, \
+  '' using 4:($13/1000):($4==1e-2? sprintf("%.2f", $10/$13) : "") with labels notitle offset character 2.2,character -0.4 textcolor linetype 8, \
+  '' using 4:($13/1000):($4==1e-1? sprintf("%.2f", $10/$13) : "") with labels notitle offset character -2.2,character -0.7 textcolor linetype 8, \
+  '' using 4:($14/1000):($4==1e-7? sprintf("%.2f", $10/$14) : "") with labels notitle offset character 2.5,character 0 textcolor linetype 8, \
+  '' using 4:($14/1000):($4==1e-6? sprintf("%.2f", $10/$14) : "") with labels notitle offset character 0,character 0.7 textcolor linetype 8, \
+  '' using 4:($14/1000):($4==1e-5? sprintf("%.2f", $10/$14) : "") with labels notitle offset character 0,character 1.4 textcolor linetype 8, \
+  '' using 4:($14/1000):($4>=1e-4 && $4 <1e-1? sprintf("%.2f", $10/$14) : "") with labels notitle offset character 0,character 0.7 textcolor linetype 8, \
+  '' using 4:($14/1000):($4==1e-1? sprintf("%.2f", $10/$14) : "") with labels notitle offset character -1.8,character 0.7 textcolor linetype 8
 
 
 

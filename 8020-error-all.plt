@@ -37,13 +37,14 @@ set label "Batch fraction" at screen 0.5,0.02 center font ",18"
 files='indochina-2004 arabic-2005 uk-2005 webbase-2001 it-2004 sk-2005 com-LiveJournal com-Orkut asia_osm europe_osm kmer_A2a kmer_V1r'
 do for [i=1:words(files)] {
 set title word(files, i) offset 0,-0.8
+if (i>=9) { set logscale y 100 }
 if (i>=9) { set xtics rotate by 45 right }
 plot '8020/'.word(files, i).'.csv' \
-       using 4:($10) title 'Static' linestyle 1 with linespoints, \
-    '' using 4:($11) title 'ND'     linestyle 2 with linespoints, \
-    '' using 4:($12) title 'DT'     linestyle 3 with linespoints, \
-    '' using 4:($13) title 'DF'     linestyle 4 with linespoints, \
-    '' using 4:($14) title 'DF-P'   linestyle 5 with linespoints
+       using 4:($20) title 'Static' linestyle 1 with linespoints, \
+    '' using 4:($21) title 'ND'     linestyle 2 with linespoints, \
+    '' using 4:($22) title 'DT'     linestyle 3 with linespoints, \
+    '' using 4:($23) title 'DF'     linestyle 4 with linespoints, \
+    '' using 4:($24) title 'DF-P'   linestyle 5 with linespoints
 }
 unset multiplot
 
