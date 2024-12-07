@@ -9,6 +9,7 @@ set datafile separator ','
 set style fill solid border lt -1
 set style textbox opaque noborder
 set xtics rotate by 45 right
+set xrange [:0.1]
 set format x "10^{%L}"
 set format y "10^{%L}"
 set grid y
@@ -16,8 +17,8 @@ set key above font ",12"
 
 
 ## Set line styles
-set style line  1 linewidth 2 linetype 6 pointtype 5 dashtype 1
-set style line  2 linewidth 2 linetype 7 pointtype 9 dashtype 1
+set style line  1 linewidth 2 linetype 7 pointtype 9 dashtype 1
+set style line  2 linewidth 2 linetype 7 pointtype 9 dashtype 2
 set style line  3 linewidth 2 linetype 2 pointtype 2 dashtype 1
 set style line  4 linewidth 2 linetype 8 pointtype 3 dashtype 1
 set style line  5 linewidth 2 linetype 8 pointtype 3 dashtype 2
@@ -29,11 +30,10 @@ set logscale y 10
 set xlabel  '{/:Bold Batch fraction}'
 set ylabel  '{/:Bold Error}'
 plot '8020.csv' \
-     using 4:($20) title 'Static' linestyle  1 with linespoints, \
-  '' using 4:($21) title 'ND'     linestyle  2 with linespoints, \
-  '' using 4:($22) title 'DT'     linestyle  3 with linespoints, \
-  '' using 4:($23) title 'DF'     linestyle  4 with linespoints, \
-  '' using 4:($24) title 'DF-P'   linestyle  5 with linespoints
+     using 4:($18) title 'DF CPU'   linestyle  1 with linespoints, \
+  '' using 4:($19) title 'DF-P CPU' linestyle  2 with linespoints, \
+  '' using 4:($23) title 'DF GPU'   linestyle  4 with linespoints, \
+  '' using 4:($24) title 'DF-P GPU' linestyle  5 with linespoints
 
 
 

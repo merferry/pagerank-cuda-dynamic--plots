@@ -12,6 +12,7 @@ set style textbox opaque noborder
 set lmargin 4.5
 set tmargin 1
 unset xtics
+set xrange [:0.1]
 set logscale x 10
 set logscale y 10
 set format x "10^{%L}"
@@ -23,8 +24,8 @@ set multiplot layout 3,4 margins 0.06,0.98,0.10,0.95 spacing 0.06,0.07
 
 
 ## Set line styles
-set style line  1 linewidth 2 linetype 6 pointtype 5 dashtype 1
-set style line  2 linewidth 2 linetype 7 pointtype 9 dashtype 1
+set style line  1 linewidth 2 linetype 7 pointtype 9 dashtype 1
+set style line  2 linewidth 2 linetype 7 pointtype 9 dashtype 2
 set style line  3 linewidth 2 linetype 2 pointtype 2 dashtype 1
 set style line  4 linewidth 2 linetype 8 pointtype 3 dashtype 1
 set style line  5 linewidth 2 linetype 8 pointtype 3 dashtype 2
@@ -38,11 +39,10 @@ do for [i=1:words(files)] {
 set title word(files, i) offset 0,-0.8
 if (i>=9) { set xtics rotate by 45 right }
 plot '8020/'.word(files, i).'.csv' \
-       using 4:($10/1000) title 'Static' linestyle 1 with linespoints, \
-    '' using 4:($11/1000) title 'ND'     linestyle 2 with linespoints, \
-    '' using 4:($12/1000) title 'DT'     linestyle 3 with linespoints, \
-    '' using 4:($13/1000) title 'DF'     linestyle 4 with linespoints, \
-    '' using 4:($14/1000) title 'DF-P'   linestyle 5 with linespoints
+     using 4:($8 /1000) title 'DF CPU'   linestyle  1 with linespoints, \
+  '' using 4:($9 /1000) title 'DF-P CPU' linestyle  2 with linespoints, \
+  '' using 4:($13/1000) title 'DF GPU'   linestyle  4 with linespoints, \
+  '' using 4:($14/1000) title 'DF-P GPU' linestyle  5 with linespoints
 }
 unset multiplot
 
